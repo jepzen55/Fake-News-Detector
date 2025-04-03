@@ -1,0 +1,78 @@
+/* General Styling */
+body {
+    width: 320px;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* Title Styling */
+h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Textarea Styling */
+textarea {
+    width: 90%;
+    height: 120px;
+    border: 2px solid #007bff;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 14px;
+    resize: none;
+    background: white;
+    outline: none;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Button Styling */
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+    width: 80%;
+    margin-top: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Result Styling */
+#result {
+    margin-top: 15px;
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    background: #ffffff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#result p {
+    margin: 5px 0;
+}
+
+/* Fake/Real Labels */
+#result p strong {
+    color: #222;
+}
+
+#result p:nth-child(2) strong {
+    color: #ff4d4d; /* Fake News - Red */
+}
+
+#result p:nth-child(3) strong {
+    color: #28a745; /* Real News - Green */
+}

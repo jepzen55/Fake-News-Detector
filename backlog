@@ -1,0 +1,15 @@
+Feedback (thumps up thumps down) - gem artikel og enten thumps up eller down
+
+Gør model mindre sikker med kortere input (udner 150 ord skal den confidence skrues manuelt ned)
+
+Tjek sproget og se om det er aggresiv osv. måske tilføj besked hvis det er tilfældet.
+
+Giv tips til at se fake news (pop up menu med ting der normalt er i en fake artikkel)
+
+Måske check source tool?? ellers er det future works.
+
+Måske giv en warning om at modellen er trænet på gammel data
+
+generelt css, gør den pænere og bedre at bruge
+
+Forklar hvad confidence specifikt er (Måske pop up)

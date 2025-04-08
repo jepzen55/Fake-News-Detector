@@ -1,0 +1,12 @@
+[
+  {
+    "text": "testetas asdgasa ADad a dsf afasf a",
+    "feedback": "The article was misleading because of ......",
+    "original_label": "FAKE"
+  },
+  {
+    "text": "asghasga sadas dasgasfasd",
+    "feedback": "heahasd sadagas as",
+    "original_label": "FAKE"
+  }
+]

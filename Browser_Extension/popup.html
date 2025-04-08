@@ -7,10 +7,46 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Fake News Detector</h2>
-    <textarea id="newsText" placeholder="Paste news article here..."></textarea>
-    <button id="checkNews">Check News</button>
-    <div id="result"></div>
+    <div class="tab-container">
+        <div class="tab-header">
+          <button class="tab-btn active" data-tab="tab-predict">🧠 Prediction</button>
+          <button class="tab-btn" data-tab="tab-info">📘 Info</button>
+          <button class="tab-btn" data-tab="tab-history">🕘 History</button>
+        </div>
+      
+        <div class="tab-content">
+          <!-- Prediction Tab -->
+          <div id="tab-predict" class="tab active">
+            <textarea id="newsText" placeholder="Paste news article here..."></textarea>
+            <button id="checkNews">Check News</button>
+            <div id="result"></div>
+            <div id="feedback-section" style="margin-top: 10px;"></div>
+          </div>
+      
+          <!-- Info Tab -->
+          <div id="tab-info" class="tab">
+            <p>📌 <strong>What does confidence mean?</strong><br>
+              Confidence shows how sure the model is — high scores still aren't always correct.</p>
+            <p>🔎 <strong>Top contributing words?</strong><br>
+              Words that influenced the model’s decision the most (either toward or away).</p>
+            <p>🤖 <strong>About the model:</strong><br>
+              This is a transformer model trained on older news articles. It might be less accurate on very recent or very short ones.</p>
+          </div>
+      
+          <!-- History Tab -->
+<!-- History Tab -->
+        <div id="tab-history" class="tab">
+            <p><strong>Last 5 Articles:</strong></p>
+            <ul id="history-list"></ul>
+            <button id="clear-history" style="margin-top: 10px;">🗑️ Clear History</button>
+        </div>
+
+        </div>
+      </div>
+      
+      
+    
+    
 
     <script src="popup.js"></script>
 </body>

@@ -65,7 +65,7 @@ def predict():
                 "confidence_tier": "prior feedback",
                 "confidence_score": "N/A",
                 "top_words": [],
-                "explanation": f"🗂️ A similar article was flagged by a user as: '{match['feedback']}'",
+                "explanation": f"🗂️ A similar article was flagged by a user as fake:'{match['feedback']}'",
                 "previous_feedback": match
             })
 

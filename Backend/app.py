@@ -17,6 +17,10 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 clf = pipeline("text-classification", model=model, tokenizer=tokenizer)
 explainer = SequenceClassificationExplainer(model, tokenizer)
 
+# Import an emotion detection model
+TONE_MODEL = "nateraw/bert-base-uncased-emotion"
+tone_clf = pipeline("text-classification", model=TONE_MODEL, tokenizer=TONE_MODEL)
+
 FEEDBACK_FILE = "feedback_data.json"
 
 # ---- Utility Functions ----
@@ -100,13 +104,26 @@ def predict():
             else:
                 return "low confidence"
 
+        # --- New: Tone Analysis ---
+        tone_result = tone_clf(text)
+        tone_label = tone_result[0]["label"]
+        tone_confidence = round(tone_result[0]["score"], 4)
+        if 0.4 <= tone_confidence <= 0.76:
+            tone_label = "Neutral"
+        else:
+            tone_label = tone_label
+
         return jsonify({
             "label": label,
             "confidence_tier": interpret_confidence(confidence_score),
             "confidence_score": round(confidence_score, 4),
             "top_words": top_words,
             "explanation": explanation,
-            "original_text": text
+            "original_text": text,
+            "tone": {
+                "label": tone_label,
+                "confidence_score": tone_confidence
+            }
         })
 
     except Exception as e:

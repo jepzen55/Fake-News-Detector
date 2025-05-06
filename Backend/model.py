@@ -6,7 +6,10 @@ MODEL_NAME = "jy46604790/Fake-News-Bert-Detect"
 model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 clf = pipeline("text-classification", model=model, tokenizer=tokenizer)
-explainer = SequenceClassificationExplainer(model, tokenizer)
+explainer = SequenceClassificationßExplainer(model, tokenizer)
+
+
+
 
 # 🔹 Confidence interpretation
 def interpret_confidence(score):

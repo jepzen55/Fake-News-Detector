@@ -168,4 +168,23 @@ button {
   #feedback-form button {
     margin-top: 5px;
   }
+
+  body {
+    min-height: 350px;
+    transition: height 0.3s ease;
+    overflow: hidden;
+}
+
+body.expanded {
+    min-height: 500px;
+}
+
+body.expanded-feedback {
+    min-height: 580px; /* or more if needed */
+}
+
+#popup-scroll-container {
+    max-height: 600px;
+    overflow-y: auto;
+  }
   

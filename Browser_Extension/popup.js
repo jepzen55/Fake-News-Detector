@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
         // Render thumbs up/down and feedback form
         function renderFeedbackUI() {
+            document.body.classList.add("expanded");
             feedbackSection.innerHTML = `
                 <p>Was this prediction helpful?</p>
                 <button id="thumbs-up">👍</button>
@@ -35,7 +36,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
     
             document.getElementById("thumbs-down").addEventListener("click", () => {
-                document.getElementById("feedback-form").style.display = "block";
+                const form = document.getElementById("feedback-form");
+                form.style.display = "block";
+            
+                // ✅ Scroll the container to the bottom
+                const scrollContainer = document.getElementById("popup-scroll-container");
+                setTimeout(() => {
+                    scrollContainer.scrollTop = scrollContainer.scrollHeight;
+                }, 100); // slight delay ensures content is fully rendered
             });
     
             document.getElementById("submit-feedback").addEventListener("click", async () => {
@@ -110,7 +118,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     resultDiv.innerHTML = `<p style='color: red;'>❌ Error: ${data.error}</p>`;
                 } else {
                     const labelColor = data.label === "FAKE" ? "#ff4d4d" : "#28a745";
+                    const emotionWarning = data.emotion_warning 
+                        ? `<p style="color: #d9534f;"><strong>⚠️ Warning:</strong> ${data.emotion_warning}</p>` 
+                        : "";
                     const explanation = data.explanation || "";
+
                     const topWords = data.top_words?.length
                         ? `<p>🔎 Top contributing words: <em>${data.top_words.join(", ")}</em></p>`
                         : "";
@@ -121,6 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             <strong style="color: ${labelColor};">${data.label}</strong>
                             with <strong>${data.confidence_tier}</strong>.
                         </p>
+                        ${emotionWarning}
                         ${topWords}
                         <p>${explanation}</p>
                     `;

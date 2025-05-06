@@ -114,6 +114,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     const topWords = data.top_words?.length
                         ? `<p>🔎 Top contributing words: <em>${data.top_words.join(", ")}</em></p>`
                         : "";
+
+                        // New: Tone information display
+                    const toneInfo = data.tone
+                        ? `<p>🎭 Tone: <strong>${data.tone.label}</strong> (confidence: ${data.tone.confidence})</p>`
+                        : "";
     
                     const html = `
                         <p>
@@ -123,6 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         </p>
                         ${topWords}
                         <p>${explanation}</p>
+                        <p>${toneInfo}</p>
                     `;
                     resultDiv.innerHTML = html;
     

@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                         // New: Tone information display
                     const toneInfo = data.tone
-                        ? `<p>🎭 Tone: <strong>${data.tone.label}</strong> (confidence: ${data.tone.confidence})</p>`
+                        ? `<p>🎭 Tone: <strong>${data.tone.label}</strong></p>`
                         : "";
     
                     const html = `

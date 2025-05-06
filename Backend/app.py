@@ -108,6 +108,10 @@ def predict():
         tone_result = tone_clf(text)
         tone_label = tone_result[0]["label"]
         tone_confidence = round(tone_result[0]["score"], 4)
+        if 0.4 <= tone_confidence <= 0.76:
+            tone_label = "Neutral"
+        else:
+            tone_label = tone_label
 
         return jsonify({
             "label": label,
@@ -118,7 +122,7 @@ def predict():
             "original_text": text,
             "tone": {
                 "label": tone_label,
-                "confidence": tone_confidence
+                "confidence_score": tone_confidence
             }
         })
 

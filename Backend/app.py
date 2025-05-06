@@ -69,7 +69,7 @@ def predict():
                 "confidence_tier": "prior feedback",
                 "confidence_score": "N/A",
                 "top_words": [],
-                "explanation": f"🗂️ A similar article was flagged by a user as: '{match['feedback']}'",
+                "explanation": f"🗂️ A similar article was flagged by a user as fake:'{match['feedback']}'",
                 "previous_feedback": match
             })
 
@@ -140,4 +140,5 @@ def receive_feedback():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
+
